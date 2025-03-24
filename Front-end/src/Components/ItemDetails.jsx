@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import Product from "./Product";
+// import Product from "./Product";
 
 function ItemDetails() {
-  // Receive productId as a prop
+  
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const url = "";
+  const url = "http://localhost:8080/auth/products";
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(url); // Fetch by ID
+        const response = await fetch(url);
         if (!response.ok) {
           const errorData = await response.json();
           throw new Error(
@@ -31,22 +31,7 @@ function ItemDetails() {
     };
 
     fetchProduct();
-  }, []); // Fetch when productId changes
-
-  // const handleAddToCart = () => {
-  //   if (product) {
-  //     console.log('Added to cart:', product);
-  //     // Implement your add to cart logic here (e.g., using state management or context)
-  //   }
-  // };
-
-  // const handleAddToWishlist = () => {
-  //   if (product) {
-  //     console.log('Added to wishlist:', product);
-  //     // Implement your add to wishlist logic here
-  //   }
-  // };
-
+  }, []);
   if (loading) {
     return <div className="text-center py-4">Loading product details...</div>;
   }
