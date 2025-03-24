@@ -27,7 +27,7 @@ function Login({ ChangeLogin }) {
       password: Password,
     });
 
-    if (Email === "ibnex54@gmail.com" && Password === "asadhodekar") {
+    if (Email === "ibnex@gmail.com" && Password === "ibneahad") {
       ChangeLogin();
       navi("/add");
     } else {
